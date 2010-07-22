@@ -1,0 +1,36 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3163
+
+This plugin maps (by default) <S-CR> to add a filetype's provided "line ending"
+to the end of the current line if it is not already present. For instance, a ';'
+would be added to the end of a line of JavaScript source.
+
+This is similar to a feature provided by TextMate, mapped to
+Command-Option-Return in that application.
+
+Usage:
+
+Somewhere in your .vimrc (or equivalent), provide a global dict mapping filetype
+names to line endings, like so:
+
+let g:Endlines = {
+  &#039erlang': '.',
+  &#039java': ';',
+  &#039javascript': ';',
+  &#039ocaml': ';;',
+  &#039perl': ';',
+  &#039php': ';',
+  &#039python': ':',
+  &#039sml': ';'
+\}
+
+By default, <S-CR> is mapped in both insert and normal mode. In insert mode, a
+new line is added as well.
+
+Global Options:
+
+g:EndlineMapping ('<S-CR>'): The default endline mapping.
+g:EndlineInsertMapping (g:EndlineMapping): The insert mode mapping.
+g:EndlineNormalMapping (g:EndlineMapping): The normal mode mapping.
+g:EndlineInsert (1): 0 to disable the insert mode mapping.
+g:EndlineNormal (1): 0 to disable the normal mode mapping.
+g:Endlines ({}): See "Usage"
