@@ -1,12 +1,12 @@
 " ============================================================================
 " File: endline.vim
 " Description: Easily add filetype-specific line-endings.
-" Maintainer: Thomas Allen <thomasmallen@gmail.com>
+" Maintainer: Thomas Allen <thomas@oinksoft.com>
+" Version: 0.1.1
 " ============================================================================
-let s:EndlineVersion = '0.1'
 
-" Insert a line ending if it exists
-function! g:EndlineAdd(char)
+" Insert a line ending unless it exists
+function! EndlineAdd(char)
   let line = getline('.')
   if match(line, '\V' . escape(a:char, '\') . '\v\s*$') == -1
     exec 'normal A' . a:char
@@ -16,13 +16,13 @@ endfunction
 function! s:mapLineEnders(ft, char)
   if g:EndlineInsert
     exec 'au FileType ' . a:ft . " inoremap <buffer> "
-          \. g:EndlineInsertMapping . " <ESC>:call g:EndlineAdd('"
+          \. g:EndlineInsertMapping . " <ESC>:call EndlineAdd('"
           \. a:char . "')<CR>a<CR>"
   endif
 
   if g:EndlineNormal
     exec 'au FileType ' . a:ft . " nnoremap <buffer> "
-          \. g:EndlineNormalMapping . " :call g:EndlineAdd('"
+          \. g:EndlineNormalMapping . " :call EndlineAdd('"
           \. a:char . "')<CR>"
   endif
 endfunction

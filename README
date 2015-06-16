@@ -23,6 +23,17 @@ let g:Endlines = {
   &#039sml': ';'
 \}
 
+Mappings can also be a list of patterns that will be tried in order. In the
+following example, a " ->" is appended if the line starts with no whitespace
+and ends with a ")", and a "," is appended if the line ends with
+non-whitespace.
+
+let g:Endlines = {
+      &#039erlang':     [
+        \['^\S.*)$', ' ->'],
+        \['\S$', ',']]
+      \}
+
 By default, <S-CR> is mapped in both insert and normal mode. In insert mode, a
 new line is added as well.
 

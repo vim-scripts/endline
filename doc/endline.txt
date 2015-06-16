@@ -2,7 +2,7 @@
            For Vim version 7.x
 
                                By Thomas Allen
-                             thomasmallen@gmail.com
+                             thomas@oinksoft.com
 
 This plugin maps (by default) <S-CR> to add a filetype's provided "line ending"
 to the end of the current line if it is not already present. For instance, a ';'
@@ -41,4 +41,3 @@ g:EndlineNormalMapping (g:EndlineMapping): The normal mode mapping.
 g:EndlineInsert (1): 0 to disable the insert mode mapping.
 g:EndlineNormal (1): 0 to disable the normal mode mapping.
 g:Endlines ({}): See "Usage"
-
